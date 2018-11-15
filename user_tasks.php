@@ -96,7 +96,7 @@ if (isset($_POST['delete_row_submit']) and isset($_POST['delete_row']) ){
     //$sql = "DELETE FROM task WHERE id IN (:$id_task)";
     $stmt= $pdo->prepare($sql);
     $stmt->execute($data); //тут почему то не работает через $data это  выражение id IN (:$id_task)
-    header("Location: http://".$_SERVER['HTTP_HOST']."/NET/mysql/3/");
+    header("Location: index.php"); 
 }
 if (isset($_POST['deleg_to_user'])){  
     $assigned_users_id_from_form =$_POST['assigned_user_id'];
@@ -111,7 +111,7 @@ if (isset($_POST['deleg_to_user'])){
         $stmt->execute($data);
         
     }
-    header("Location: http://".$_SERVER['HTTP_HOST']."/NET/mysql/3/"); //пытался так обновлять страницы, но нотайсы
+    header("Location: index.php"); 
 }
 if (isset($_GET['done'])){
     $user_id_or_assig = 'user_id';
@@ -127,10 +127,10 @@ if (isset($_GET['done'])){
     $sql = "UPDATE task SET is_done=:is_done WHERE ".$user_id_or_assig."=:".$user_id_or_assig." AND id=:id LIMIT 1";
     $stmt= $pdo->prepare($sql);
     $stmt->execute($data);
-    header("Location: http://".$_SERVER['HTTP_HOST']."/NET/mysql/3/");
+    header("Location: index.php"); 
 }
 if (isset($_POST['logout'])){ 
     $_SESSION['user_id'] = NULL;  
     $_SESSION['NAME'] = NULL;
-    header("Location: http://".$_SERVER['HTTP_HOST']."/NET/mysql/3/");
+    header("Location: index.php");
 }

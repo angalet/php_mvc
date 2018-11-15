@@ -12,7 +12,7 @@ if (!isset($_SESSION['NAME']) and $_POST['auth_reg']=='auth') {
         setcookie("user_name", $_POST['login']);
         setcookie("user_auth", "YES");
         echo "вы авторизовались ".$_SESSION['NAME'];
-        header("Location: http://".$_SERVER['HTTP_HOST']."/NET/mysql/3/");
+        header("Location: index.php"); 
     }
 } 
 if (!isset($_SESSION['NAME'])) {
