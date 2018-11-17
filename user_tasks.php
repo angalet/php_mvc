@@ -34,7 +34,7 @@ foreach ($tasks as $row){
         echo '<td><input type="checkbox" name="delete_row[]" value='.$row['id'].' /></td>';
         echo '<td>'.$row['id']." ".$row['description'].'</td>';
         echo '<td>'.date("Y M d",strtotime($row['date_added'])).'</td>';
-        echo "<td><a href='/NET/mysql/3/?id=".$row['id']."&done=$task_state_make'>$task_state</a></td>";
+        echo "<td><a href='index.php?id=".$row['id']."&done=$task_state_make'>$task_state</a></td>";
         echo '<td>';
         echo "<select name='assigned_user_id[".$row['id']."]' >";
         foreach ($assignedUserList as $assignedUser){
@@ -69,7 +69,7 @@ foreach ($assigned_tasks as $assigned_task){
     echo "<tr><td><input type='checkbox' disabled   /></td>";
     echo "<td>".$assigned_task['id']." ".$assigned_task['description']."</td>";
     echo "<td>".date("Y M d",strtotime($assigned_task['date_added']))."</td>";
-    echo "<td><a href='/NET/mysql/3/?id=".$assigned_task['id']."&done=".$task_state_make."&assigned_=1'>".$task_state."</a></td>";
+    echo "<td><a href='index.php?id=".$assigned_task['id']."&done=".$task_state_make."&assigned_=1'>".$task_state."</a></td>";
     echo "<td>".$assigned_task['login']."->".$assigned_task['name1']."</td></tr>";
 }
 $data = [
